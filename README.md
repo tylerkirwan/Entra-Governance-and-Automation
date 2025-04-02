@@ -1,6 +1,8 @@
 # Secure MFA Resets with Passkeys and Entra Governance
 
-Provides a process using Entra access packages, logic apps, and corresponding conditional access policies
+Provides a process and automation for a self-service reset of MFA in a passwordless (or future passwordless) environment. The process institutes an approval process where the manager requests on behalf the individual needing an MFA reset (Or is the 1st stage of the approval process). IT or Security is the secondary stage approver.
+
+This flow utilizes Entra access packages, logic apps, and corresponding conditional access policies to transition or maintain phish resistant MFA. 
 ## Purpose and Goals
 
 - Reduce likelihood of social engineering a helpdesk member by adding approval stages, visibility, and reporting capabilities to MFA resets
@@ -87,7 +89,5 @@ Remove:
 - Send Message to requestor and manager
 - Send Message to mfa reset channel
 - Email (Requires Azure Communication Services)## Acknowledgements
-## Acknowledgements
 
 - [Nathan Mcnulty](https://github.com/nathanmcnulty)
-

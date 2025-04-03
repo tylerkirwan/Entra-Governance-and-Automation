@@ -90,4 +90,6 @@ Remove:
 - Send Message to mfa reset channel
 - Email (Requires Azure Communication Services)## Acknowledgements
 
+## Acknowledgements
+
 - [Nathan Mcnulty](https://github.com/nathanmcnulty)

@@ -78,9 +78,10 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 9) At this point you can add the security group you will use as part of the access package. This group will be used for conditional access. Additionally, you can create the Access Package Policy. Customize as you see fit however it's strongly suggested to utilize the multistage approvals. Below is how I configured the policy:
 -  Pictures of policy
 ### Part 2 - Apply logic app json 
-Linked is the complete json I used however without editing out the Teams and Email parts it will have errors and not save. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
 ---
+Linked is the complete json I used however without editing out the Teams and Email parts it will have errors and not save. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
 
+---
 1) In the logic app designer there will be 4 actions to add. Ensure you have set up Azure Communication Services if you plan on following exactly
 - Create a Chat
 - Send Message to requestor and manager

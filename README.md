@@ -79,10 +79,7 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 -  Pictures of policy
 ### Part 2 - Apply logic app json 
 Linked is the complete json I used however without editing out the Teams and Email parts it will have errors and not save. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
-
-Remove:
-
-Remove:
+---
 
 1) In the logic app designer there will be 4 actions to add. Ensure you have set up Azure Communication Services if you plan on following exactly
 - Create a Chat

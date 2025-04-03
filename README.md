@@ -77,16 +77,42 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 ```
 9) At this point you can add the security group you will use as part of the access package. This group will be used for conditional access. Additionally, you can create the Access Package Policy. Customize as you see fit however it's strongly suggested to utilize the multistage approvals. Below is how I configured the policy:
 -  Pictures of policy
-### Part 2 - Apply logic app json 
+### Part 2 - Apply logic app json and Communication Actions
 ---
-Linked is the complete json I used however without editing out the Teams and Email parts it will have errors and not save. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
+LAmfa.json is not the full code, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
 
 ---
 1) In the logic app designer there will be 4 actions to add. Ensure you have set up Azure Communication Services if you plan on following exactly
 - Create a Chat
 - Send Message to requestor and manager
 - Send Message to mfa reset channel
-- Email (Requires Azure Communication Services)## Acknowledgements
+- Email (Requires Azure Communication Services)
+
+####Create a Chat
+Members to add needs:
+body('Parse_Manager_Response')?['mail']
+body('Get_target_information_from_EM')?['Email']
+
+Chat title:
+body('Get_target_information_from_EM')?['DisplayName']
+
+<insert link>
+---
+#### Send Message to Requestor and Manager
+<insert link>
+---
+#### Send Message to mfa Reset Channel
+	
+<insert link>
+---
+#### Email
+
+<insert link>
+---
+
+#### Full Designer View
+<insert link>
+
 
 ## Acknowledgements
 

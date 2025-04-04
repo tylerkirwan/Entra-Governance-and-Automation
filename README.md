@@ -88,7 +88,7 @@ LAmfa.json is not the full code, the connection and communication actions need t
 - Send Message to mfa reset channel
 - Email (Requires Azure Communication Services)
 
-####Create a Chat
+#### Create a Chat
 Members to add needs:
 body('Parse_Manager_Response')?['mail']
 body('Get_target_information_from_EM')?['Email']
@@ -96,7 +96,8 @@ body('Get_target_information_from_EM')?['Email']
 Chat title:
 body('Get_target_information_from_EM')?['DisplayName']
 
-<insert link>
+![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/createachat.png)
+
 ---
 #### Send Message to Requestor and Manager
 <insert link>

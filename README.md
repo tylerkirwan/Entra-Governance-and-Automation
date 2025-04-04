@@ -100,20 +100,33 @@ body('Get_target_information_from_EM')?['DisplayName']
 
 ---
 #### Send Message to Requestor and Manager
-<insert link>
+
+replace(body('Create_a_chat')?['id'], '\n', '')
+body('Parse_TAP_Response')?['temporaryAccessPass']
+
+![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamsmessagerequestormanager.png)
+
 ---
 #### Send Message to mfa Reset Channel
+
+body('Parse_Manager_Response')?['mail']
+body('Get_target_information_from_EM')?['Email']
+body('Parse_TAP_Response')?['temporaryAccessPass']
+
+![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamschannel.png)
 	
-<insert link>
 ---
 #### Email
 
-<insert link>
+
+![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
+
 ---
 
 #### Full Designer View
-<insert link>
+How the full logic app looks with communication added
 
+![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
 
 ## Acknowledgements
 

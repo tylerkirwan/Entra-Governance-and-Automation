@@ -12,7 +12,7 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
   <img 
     src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/approvallogic.png?raw=true" 
     alt="Approval Logic" 
-    style="width:45%; max-width:300px; margin-top:-20px;"
+    style="width:45%; max-width:300px; margin-top:-60px;"
   />
 </div>
 

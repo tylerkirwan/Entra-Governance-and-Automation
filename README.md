@@ -23,7 +23,7 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
 - Streamline MFA resets via Entra Governance access packages and save time with your support teams and end users
 - Enroll new MFA methods into phish resistance by default
 - No exchanging or sharing of passwords
-- Cleanup of expired TAPs (Optional)
+- End user, manager, helpdesk, and security are all aware and can be audited or integrated into SIEM/SOAR
 ## FAQ & Prerequisites 
 
 #### What licensing is required?
@@ -35,10 +35,10 @@ Security E3 and or Entra P2
 Privileged Role Administrator and Privileged Authentication Administrator or Global Admin
 
 #### What Resources?
-This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email
+This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email and additional logic app for temporary access cleanup.
 
 ## Directions
-Broken into 4 sections. The first 2 sections are the most time consuming.
+Broken into 4 sections. Part 3 requires the most time to setup.
 ### Part 1 - Create Access Package and Assign Permissions
 
 All of these steps as far as I'm aware can be done with Graph Powershell SDK however these directions will be a mix a both.
@@ -90,11 +90,14 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 ```
 9) At this point you can add the security group you will use as part of the access package. This group will be used for conditional access. Additionally, you can create the Access Package Policy. Customize as you see fit however it's strongly suggested to utilize the multistage approvals. Below is how I configured the policy:
 -  Pictures of policy
-### Part 2 - Apply logic app json and Communication Actions
+### Part 2 - Apply logic app json
 ---
 LAmfa.json is not the full code, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
+[Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/fullwithoutcomm.png)
+
 
 ---
+### Part 3 - Apply logic app Communication Actions
 1) In the logic app designer there will be 4 actions to add. Ensure you have set up Azure Communication Services if you plan on following exactly
 - Create a Chat
 - Send Message to requestor and manager
@@ -103,37 +106,40 @@ LAmfa.json is not the full code, the connection and communication actions need t
 
 #### Create a Chat
 Members to add needs:
+```plaintext
 body('Parse_Manager_Response')?['mail']
 body('Get_target_information_from_EM')?['Email']
-
+```
 Chat title:
+```plaintext
 body('Get_target_information_from_EM')?['DisplayName']
-
+```
 ![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/createachat.png)
 
 ---
 #### Send Message to Requestor and Manager
-
+```plaintext
 replace(body('Create_a_chat')?['id'], '\n', '')
 body('Parse_TAP_Response')?['temporaryAccessPass']
-
+```
 ![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamsmessagerequestormanager.png)
 
 ---
 #### Send Message to mfa Reset Channel
-
+```plaintext
 body('Parse_Manager_Response')?['mail']
 body('Get_target_information_from_EM')?['Email']
 body('Parse_TAP_Response')?['temporaryAccessPass']
-
+```
 ![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamschannel.png)
 	
 ---
 #### Email
-
-
+```plaintext
+body('Parse_Manager_Response')?['mail']
+body('Get_target_information_from_EM')?['Email']
 ![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
-
+```
 ---
 
 #### Full Designer View

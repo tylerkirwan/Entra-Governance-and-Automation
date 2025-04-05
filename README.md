@@ -3,6 +3,11 @@
 Provides a process and automation for a self-service reset of MFA in a passwordless (or future passwordless) environment. The process institutes an approval process where the manager requests on behalf the individual needing an MFA reset (Or is the 1st stage of the approval process). IT or Security is the secondary stage approver.
 
 This flow utilizes Entra access packages, logic apps, and corresponding conditional access policies to transition or maintain phish resistant MFA. 
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/approvalflow.png?raw=true" alt="Approval Flow" style="width: 45%; max-width:300px; margin-right: 10px;" />
+  <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/approvallogic.png?raw=true" alt="Approval Logic" style="width: 45%; max-width:300px; margin-left: 10px;" />
+</div>
+
 ## Purpose and Goals
 
 - Reduce likelihood of social engineering a helpdesk member by adding approval stages, visibility, and reporting capabilities to MFA resets

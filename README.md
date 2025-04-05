@@ -93,7 +93,8 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 ### Part 2 - Apply logic app json
 ---
 LAmfa.json is not the full code, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
-[Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/fullwithoutcomm.png)
+
+[Designer](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/fullwithoutcomm.png)
 
 
 ---
@@ -122,7 +123,7 @@ body('Get_target_information_from_EM')?['DisplayName']
 replace(body('Create_a_chat')?['id'], '\n', '')
 body('Parse_TAP_Response')?['temporaryAccessPass']
 ```
-![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamsmessagerequestormanager.png)
+![Send Teams Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamsmessagerequestormanager.png)
 
 ---
 #### Send Message to mfa Reset Channel
@@ -131,7 +132,7 @@ body('Parse_Manager_Response')?['mail']
 body('Get_target_information_from_EM')?['Email']
 body('Parse_TAP_Response')?['temporaryAccessPass']
 ```
-![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamschannel.png)
+![Send Teams Channel](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamschannel.png)
 	
 ---
 #### Email
@@ -140,12 +141,24 @@ body('Parse_Manager_Response')?['mail']
 body('Get_target_information_from_EM')?['Email']
 ![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
 ```
+![Email](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
 ---
 
 #### Full Designer View
 How the full logic app looks with communication added
 
-![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
+<div style="display: flex; align-items: flex-start;">
+  <img 
+    src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/logicapptop.png?raw=true" 
+    alt="Top" 
+    style="width:45%; max-width:300px; margin-right:10px;"
+  />
+  <img 
+    src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/logicappbottom.png?raw=true" 
+    alt="Bottom" 
+    style="width:45%; max-width:300px; margin-top:-60px;"
+  />
+</div>
 
 ## Acknowledgements
 

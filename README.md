@@ -5,14 +5,14 @@ Provides a process and automation for a self-service reset of MFA in a passwordl
 This flow utilizes Entra access packages, logic apps, and corresponding conditional access policies to transition or maintain phish resistant MFA. 
 <div style="display: flex; align-items: flex-start;">
   <img 
-    src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/approvalflow.png?raw=true"
-    alt="Approval Flow"
-    style="width: 45%; max-width:300px; margin-right: 10px;"
+    src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/approvalflow.png?raw=true" 
+    alt="Approval Flow" 
+    style="width:45%; max-width:300px; margin-right:10px;"
   />
   <img 
-    src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/approvallogic.png?raw=true"
-    alt="Approval Logic"
-    style="width: 45%; max-width:300px;"
+    src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/approvallogic.png?raw=true" 
+    alt="Approval Logic" 
+    style="width:45%; max-width:300px; margin-top:-20px;"
   />
 </div>
 

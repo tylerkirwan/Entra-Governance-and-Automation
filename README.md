@@ -161,5 +161,5 @@ How the full logic app looks with communication added
 </div>
 
 ## Acknowledgements
-
+This logic app was built off of much of what Nathan provided for rolling out passkeys with tempoary access packages. 
 - [Nathan Mcnulty](https://github.com/nathanmcnulty)

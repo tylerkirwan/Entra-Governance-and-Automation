@@ -160,6 +160,21 @@ How the full logic app looks with communication added
   />
 </div>
 
+### Part 4 - Conditional Access Policy(s)
+
+This part will depend on your org's requirements and policies. I've used this MFA reset flow as a way to register FIDO strength authentication within mobile devices with Microsoft Authenticator (the easy way) and then shortly after passkey enrollment enforce device compliance. 
+
+1) Create an authentication strength that includes the security key phish resistance method (check box Authenticator) AND Temporary Access Pass method.
+2) Create a dedicated Security Group such as "CA_temp_Passkey Enrollment" (applied to and granted as part of the access package in Part 1)
+3) The conditions of the conditional access policy should be scoped to iOS and Android operating systems
+4) Set the policy to GRANT and require the authentication strength that was created in step 1 (don't require device compliance unless all the mobile devices are being registered/enrolled into MDM, the devices will fail to add a passkey within the authenticator app if unenrolled)
+5) I've set the security group "CA_temp_Passkey Enrollment" as an exclusion to my base policy requiring device compliance. When the access package expires within the hour the member will be removed from the security group and back to enforcing the base device compliance policy.
+
+<small>
+***Note: The only requirement is enforcing phish resistance strength that includes temporary access pass. All other configurations should be adjusted to meet your org's unique requirements and accepted risk policies. Also consider restricting the security group with Entra Administrative units, the MI will need to be included.***
+</small>
+
+
 ## Acknowledgements
-This logic app was built off of much of what Nathan provided for rolling out passkeys with tempoary access packages. 
+This logic app was built off of much of what Nathan provided for rolling out passkeys with temporary access packages. Could not have finished this flow without examples like his. Also check out his operational groups for ways to manage the auth strength policies with conditional access
 - [Nathan Mcnulty](https://github.com/nathanmcnulty)

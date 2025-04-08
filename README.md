@@ -88,7 +88,11 @@ $params = @{
 }
 $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $params).Id
 ```
-9) At this point you can add the security group you will use as part of the access package. This group will be used for conditional access. Additionally, you can create the Access Package Policy. Customize as you see fit however it's strongly suggested to utilize the multistage approvals. Below is how I configured the policy:
+9) Create or assign the likey temporary security group you will grant as part of the access package. This security group is used to apply a specific conditional access policy for passkey enrollment within Microsoft Authenticator. 
+
+10) Create the Access Package Policy. Customize as you see fit however it's strongly suggested to utilize the multistage approvals. I also expire the access package quickly (more on this in Part 4). Below is how I configured the policy:
+
+
 -  Pictures of policy
 ### Part 2 - Apply logic app json
 ---

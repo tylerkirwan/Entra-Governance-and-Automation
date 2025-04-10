@@ -164,7 +164,7 @@ How the full logic app looks with communication added
   />
 </div>
 
-:key:### Part 4 - Conditional Access Policy(s) :key:
+### :key:Part 4 - Conditional Access Policy(s) :key:
 
 This part will depend on your org's requirements and policies. I've used this MFA reset flow as a way to register FIDO strength authentication within mobile devices with Microsoft Authenticator (the easy way) and then shortly after passkey enrollment enforce device compliance. 
 
@@ -177,6 +177,6 @@ This part will depend on your org's requirements and policies. I've used this MF
 <small><strong><em>Note: The only requirement is enforcing phish resistance strength that includes temporary access pass. All other configurations should be adjusted to meet your org's unique requirements and accepted risk policies. :warning:Also consider restricting the security group with Entra Administrative units; the MI will need to be included.</em></strong></small>
 
 
-## Acknowledgements
+## :star:Acknowledgements:star:
 This logic app was built off of much of what Nathan provided for rolling out passkeys with temporary access packages. Could not have finished this flow without examples like his. Also check out his operational groups for ways to manage the auth strength policies with conditional access
 - [Nathan Mcnulty](https://github.com/nathanmcnulty)

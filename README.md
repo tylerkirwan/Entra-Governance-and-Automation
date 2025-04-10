@@ -1,4 +1,4 @@
-# Secure MFA Resets with Passkeys and Entra Governance
+:lock:# Secure MFA Resets with Passkeys and Entra Governance:lock:
 
 Provides a process and automation for a self-service reset of MFA in a passwordless (or future passwordless) environment. The process institutes an approval process where the manager requests on behalf the individual needing an MFA reset (Or is the 1st stage of the approval process). IT or Security is the secondary stage approver.
 
@@ -16,7 +16,7 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
   />
 </div>
 
-## Purpose and Goals
+:shield:## Purpose and Goals:shield:
 
 - Reduce likelihood of social engineering a helpdesk member by adding approval stages, visibility, and reporting capabilities to MFA resets
 - Privileged roles don't need to be granted to helpdesk even temporally
@@ -37,7 +37,7 @@ Privileged Role Administrator and Privileged Authentication Administrator or Glo
 #### What Resources?
 This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email and additional logic app for temporary access cleanup.
 
-## Directions
+:open_book:## Directions:open_book:
 Broken into 4 sections. Part 3 requires the most time to setup.
 ### Part 1 - Create Access Package and Assign Permissions
 
@@ -94,7 +94,7 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 
 
 -  Pictures of policy
-### Part 2 - Apply logic app json
+:gear:### Part 2 - Apply logic app json :gear:
 ---
 Use [LAmfa.json](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/LAmfa.json) This however is not the full logic app, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
 
@@ -164,7 +164,7 @@ How the full logic app looks with communication added
   />
 </div>
 
-### Part 4 - Conditional Access Policy(s)
+:key:### Part 4 - Conditional Access Policy(s) :key:
 
 This part will depend on your org's requirements and policies. I've used this MFA reset flow as a way to register FIDO strength authentication within mobile devices with Microsoft Authenticator (the easy way) and then shortly after passkey enrollment enforce device compliance. 
 
@@ -174,7 +174,7 @@ This part will depend on your org's requirements and policies. I've used this MF
 4) Set the policy to GRANT and require the authentication strength that was created in step 1 (don't require device compliance unless all the mobile devices are being registered/enrolled into MDM, the devices will fail to add a passkey within the authenticator app if unenrolled)
 5) I've set the security group "CA_temp_Passkey Enrollment" as an exclusion to my base policy requiring device compliance. When the access package expires within the hour the member will be removed from the security group and back to enforcing the base device compliance policy.
 
-<small><strong><em>Note: The only requirement is enforcing phish resistance strength that includes temporary access pass. All other configurations should be adjusted to meet your org's unique requirements and accepted risk policies. Also consider restricting the security group with Entra Administrative units; the MI will need to be included.</em></strong></small>
+<small><strong><em>Note: The only requirement is enforcing phish resistance strength that includes temporary access pass. All other configurations should be adjusted to meet your org's unique requirements and accepted risk policies. :warning:Also consider restricting the security group with Entra Administrative units; the MI will need to be included.</em></strong></small>
 
 
 ## Acknowledgements

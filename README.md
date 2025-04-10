@@ -16,7 +16,7 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
   />
 </div>
 
-:shield:## Purpose and Goals:shield:
+## :shield:Purpose and Goals:shield:
 
 - Reduce likelihood of social engineering a helpdesk member by adding approval stages, visibility, and reporting capabilities to MFA resets
 - Privileged roles don't need to be granted to helpdesk even temporally
@@ -30,16 +30,16 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
 
 Security E3 and or Entra P2
 
-#### What access is needed?
+#### :key:What access is needed?:key:
 
 Privileged Role Administrator and Privileged Authentication Administrator or Global Admin
 
 #### What Resources?
 This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email and additional logic app for temporary access cleanup.
 
-:open_book:## Directions:open_book:
+## :open_book:Directions:open_book:
 Broken into 4 sections. Part 3 requires the most time to setup.
-### Part 1 - Create Access Package and Assign Permissions
+### :envelope:Part 1 - Create Access Package and Assign Permissions:envelope:
 
 All of these steps as far as I'm aware can be done with Graph Powershell SDK however these directions will be a mix a both.
 

@@ -178,6 +178,6 @@ This part will depend on your org's requirements and policies. I've used this MF
 
 
 ## :star:Acknowledgements:star:
-This logic app was built off of much of what Nathan provided for rolling out passkeys with temporary access packages. Along with numerous other resources provided by Merill Fernando. Could not have finished this flow without resources like these. Also check out Nathan's operational groups for ways to manage the auth strength policies with conditional access
+This logic app was built off of much of what Nathan provided for rolling out passkeys with temporary access packages. Along with numerous other resources provided by Merill and Joshua Fernando. Could not have finished this flow without resources like these. Also check out Nathan's operational groups for ways to manage the auth strength policies with conditional access
 - [Nathan Mcnulty](https://github.com/nathanmcnulty)
 - [Entra News](https://entra.news/)

@@ -30,7 +30,7 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
 
 Security E3 and or Entra P2
 
-#### :key:What access is needed?:key:
+#### :key:What access is needed?
 
 Privileged Role Administrator and Privileged Authentication Administrator or Global Admin
 
@@ -94,7 +94,7 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 
 
 -  Pictures of policy
-:gear:### Part 2 - Apply logic app json :gear:
+### :gear:Part 2 - Apply logic app json :gear:
 ---
 Use [LAmfa.json](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/LAmfa.json) This however is not the full logic app, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
 

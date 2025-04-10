@@ -1,4 +1,4 @@
-:lock:# Secure MFA Resets with Passkeys and Entra Governance:lock:
+# :lock: Secure MFA Resets with Passkeys and Entra Governance:lock:
 
 Provides a process and automation for a self-service reset of MFA in a passwordless (or future passwordless) environment. The process institutes an approval process where the manager requests on behalf the individual needing an MFA reset (Or is the 1st stage of the approval process). IT or Security is the secondary stage approver.
 

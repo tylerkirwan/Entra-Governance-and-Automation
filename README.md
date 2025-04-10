@@ -102,7 +102,7 @@ Use [LAmfa.json](https://github.com/tylerkirwan/Entra-Governance-and-Automation/
 
 
 ---
-### Part 3 - Apply logic app Communication Actions
+### :telephone_receiver:Part 3 - Apply logic app Communication Actions:telephone_receiver:
 1) In the logic app designer there will be 4 actions to add. Ensure you have set up Azure Communication Services if you plan on following exactly
 - Create a Chat
 - Send Message to requestor and manager

@@ -21,22 +21,24 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
 - Reduce likelihood of social engineering a helpdesk member by adding approval stages, visibility, and reporting capabilities to MFA resets
 - Privileged roles are not required for helpdesk personnel 
 - Streamlines MFA resets via Entra Governance access packages and saves time with your support teams and end users
-- Enrolls new MFA methods into phish resistance by default
+- Enrolls new MFA methods into phish resistance by default (assuming CA policies are created in step 4)
 - No exchanging or sharing of passwords
+- Simplest known method for phish resistant enrollment for end users
 - End user, manager, helpdesk, and security are all aware and can be audited or integrated into SIEM/SOAR with reporting capabilities
 ## FAQ & Prerequisites 
 
-#### What licensing is required?
-
+**What licensing is required?**
 Security E3 and or Entra P2
-
-#### :key:What access is needed?
-
+**What access is needed?**
 Privileged Role Administrator and Privileged Authentication Administrator or Global Admin (for setup)
-
-#### What Resources?
+**What Resources?**
 This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email and additional logic app for temporary access cleanup.
+**Why expire the package?**
+This setup uses a security group to temporally bypass MDM compliance requirements as Microsoft Authenticator passkey enrollment doesnt work on nonregistered devices. Also the access package in some cases may be used more than once for a single requestor
+**Why does this flow insist on using Microsoft Authenticator passkeys (within the app) over other phish resistant methods?**
+Cross Device registration works and it works for unregistered devices however in POC testing at scale there were many instances of errors by end users do to numerous unclear steps and noticed inconsistency in service from Microsoft.
 
+---
 ## :open_book:Directions:open_book:
 Broken into 4 sections. Part 3 requires the most time to setup.
 ### :envelope:Part 1 - Create Access Package and Assign Permissions:envelope:
@@ -88,17 +90,24 @@ $params = @{
 }
 $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $params).Id
 ```
-9) Create or assign the likey temporary security group you will grant as part of the access package. This security group is used to apply a specific conditional access policy for passkey enrollment within Microsoft Authenticator. 
+9) Assign the security group you will grant as part of the access package. This security group is used to apply a specific conditional access policy for passkey enrollment within Microsoft Authenticator but its purpose is to only temporarily hold members (1-3 hours). More on this later
 
-10) Create the Access Package Policy. Customize as you see fit however it's strongly suggested to utilize the multistage approvals. I also expire the access package quickly (more on this in Part 4). Below is how I configured the policy:
-
-
--  Pictures of policy
-### :gear:Part 2 - Apply logic app json :gear:
+### :gear:Part 2 - Apply logic app json and Access Package Policy :gear:
 ---
 Use [LAmfa.json](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/LAmfa.json) This however is not the full logic app, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
 
 [Designer](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/fullwithoutcomm.png)
+#### Create the Access Package Policy
+
+Customize as you see fit to meet org standards however it's strongly suggested to utilize the multistage approvals. I also expire the access package quickly, 1 or 2 hours max I do this to enforce device compliance again as fast as possible. Access package policiescan be created by graph but i found that edits to the policy after don't work so I perfer to use the web gui when I create them.
+
+1) Give the policy a name and description
+2) Set first approver to the requestor's manager and second stage approver to IT or Security <link
+3) Set the following <link
+4) Skip or apply requestor information questions
+5) Set the expiration to as short as possible if utilizing device compliance <link
+6) Ensure the custom extension (logic app) runs AFTER approval <link
+
 
 
 ---
@@ -173,11 +182,16 @@ This part will depend on your org's requirements and policies. I've used this MF
 3) The conditions of the conditional access policy should be scoped to iOS and Android operating systems
 4) Set the policy to GRANT and require the authentication strength that was created in step 1 (don't require device compliance unless all the mobile devices are being registered/enrolled into MDM, the devices will fail to add a passkey within the authenticator app if unenrolled)
 5) I've set the security group "CA_temp_Passkey Enrollment" as an exclusion to my base policy requiring device compliance. When the access package expires within the hour the member will be removed from the security group and back to enforcing the base device compliance policy.
-
-<small><strong><em>Note: The only requirement is enforcing phish resistance strength that includes temporary access pass. All other configurations should be adjusted to meet your org's unique requirements and accepted risk policies. :warning:Also consider restricting the security group with Entra Administrative units; the MI will need to be included.</em></strong></small>
+   
+**Note:** The only requirement from the steps above for the process to work is enforcing phish resistance strength that includes temporary access pass. All other configurations should be adjusted to meet your org's unique requirements and accepted risk policies. 
+:warning:Consider restricting any security groups used within CA policies with Entra Administrative units; the MI will need to be included.
+:warning:This guide does not include a permanent authentication strength requirement for phish resistance. A future guide will automate this based on authentication registrations. Utilize System-preferred multifactor authentication within Entra.
+:warning: I use a seperate access package for direct assignments, im unsure if this logic will work correctly for direct assignments
 
 
 ## :star:Acknowledgements:star:
 This logic app was built off of much of what Nathan provided for rolling out passkeys with temporary access packages. Along with numerous other resources provided by Merill and Joshua Fernando. Could not have finished this flow without resources like these. Also check out Nathan's operational groups for ways to manage the auth strength policies with conditional access
 - [Nathan Mcnulty](https://github.com/nathanmcnulty)
 - [Entra News](https://entra.news/)
+
+Please feel free to recommend and improvements, flaws, or mistakes made.

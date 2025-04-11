@@ -102,11 +102,11 @@ Use [LAmfa.json](https://github.com/tylerkirwan/Entra-Governance-and-Automation/
 Customize as you see fit to meet org standards however it's strongly suggested to utilize the multistage approvals. I also expire the access package quickly, 1 or 2 hours max I do this to enforce device compliance again as fast as possible. Access package policiescan be created by graph but i found that edits to the policy after don't work so I perfer to use the web gui when I create them.
 
 1) Give the policy a name and description
-2) Set first approver to the requestor's manager and second stage approver to IT or Security <link
-3) Set the following <link
+2) Set first approver to the requestor's manager and second stage approver to IT or Security <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy1.png" alt="Policy1" width="300">
+3) Set the following <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy2.png" alt="Policy2" width="300">
 4) Skip or apply requestor information questions
-5) Set the expiration to as short as possible if utilizing device compliance <link
-6) Ensure the custom extension (logic app) runs AFTER approval <link
+5) Set the expiration to as short as possible if utilizing device compliance <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy3.png" alt="Policy3" width="300">
+6) Ensure the custom extension (logic app) runs AFTER approval <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy4.png" alt="Policy4" width="300">
 
 
 
@@ -136,7 +136,7 @@ body('Get_target_information_from_EM')?['DisplayName']
 replace(body('Create_a_chat')?['id'], '\n', '')
 body('Parse_TAP_Response')?['temporaryAccessPass']
 ```
-![Send Teams Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamsmessagerequestormanager.png)
+<img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/teamsmessagerequestormanager.png" alt="Request" width="300">
 
 ---
 #### Send Message to mfa Reset Channel

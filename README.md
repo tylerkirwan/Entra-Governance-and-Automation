@@ -27,15 +27,15 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
 - End user, manager, helpdesk, and security are all aware and can be audited or integrated into SIEM/SOAR with reporting capabilities
 ## FAQ & Prerequisites 
 
-**What licensing is required?**
-Security E3 and or Entra P2
-**What access is needed?**
-Privileged Role Administrator and Privileged Authentication Administrator or Global Admin (for setup)
-**What Resources?**
-This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email and additional logic app for temporary access cleanup.
-**Why expire the package?**
-This setup uses a security group to temporally bypass MDM compliance requirements as Microsoft Authenticator passkey enrollment doesnt work on nonregistered devices. Also the access package in some cases may be used more than once for a single requestor
-**Why does this flow insist on using Microsoft Authenticator passkeys (within the app) over other phish resistant methods?**
+**What licensing is required?** <br>
+Security E3 and or Entra P2 <br>
+**What access is needed?** <br>
+Privileged Role Administrator and Privileged Authentication Administrator or Global Admin (for setup) <br>
+**What Resources?** <br>
+This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email and additional logic app for temporary access cleanup.<br>
+**Why expire the package?** <br>
+This setup uses a security group to temporally bypass MDM compliance requirements as Microsoft Authenticator passkey enrollment doesnt work on nonregistered devices. Also the access package in some cases may be used more than once for a single requestor<br>
+**Why does this flow insist on using Microsoft Authenticator passkeys (within the app) over other phish resistant methods?** <br>
 Cross Device registration works and it works for unregistered devices however in POC testing at scale there were many instances of errors by end users do to numerous unclear steps and noticed inconsistency in service from Microsoft.
 
 ---

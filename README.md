@@ -95,8 +95,8 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 ### :gear:Part 2 - Apply logic app json and Access Package Policy :gear:
 ---
 Use [LAmfa.json](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/LAmfa.json) This however is not the full logic app, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
-
 [Designer](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/fullwithoutcomm.png)
+
 ---
 #### Create the Access Package Policy
 

@@ -154,7 +154,7 @@ body('Parse_Manager_Response')?['mail']
 body('Get_target_information_from_EM')?['Email']
 ![Create Chat](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
 ```
-![Email](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png)
+<img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/sendemail.png" alt="Email" width="300">
 ---
 
 #### Full Designer View

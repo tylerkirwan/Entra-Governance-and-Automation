@@ -19,11 +19,11 @@ This flow utilizes Entra access packages, logic apps, and corresponding conditio
 ## :shield:Purpose and Goals:shield:
 
 - Reduce likelihood of social engineering a helpdesk member by adding approval stages, visibility, and reporting capabilities to MFA resets
-- Privileged roles don't need to be granted to helpdesk even temporally
-- Streamline MFA resets via Entra Governance access packages and save time with your support teams and end users
-- Enroll new MFA methods into phish resistance by default
+- Privileged roles are not required for helpdesk personnel 
+- Streamlines MFA resets via Entra Governance access packages and saves time with your support teams and end users
+- Enrolls new MFA methods into phish resistance by default
 - No exchanging or sharing of passwords
-- End user, manager, helpdesk, and security are all aware and can be audited or integrated into SIEM/SOAR
+- End user, manager, helpdesk, and security are all aware and can be audited or integrated into SIEM/SOAR with reporting capabilities
 ## FAQ & Prerequisites 
 
 #### What licensing is required?
@@ -32,7 +32,7 @@ Security E3 and or Entra P2
 
 #### :key:What access is needed?
 
-Privileged Role Administrator and Privileged Authentication Administrator or Global Admin
+Privileged Role Administrator and Privileged Authentication Administrator or Global Admin (for setup)
 
 #### What Resources?
 This will vary based on what pieces of your implementation you use but it involves at least 1 logic app. Optional: Azure Communication Services for delivering email and additional logic app for temporary access cleanup.

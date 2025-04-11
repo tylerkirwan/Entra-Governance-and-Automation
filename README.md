@@ -97,16 +97,30 @@ $packageId = (New-MgBetaEntitlementManagementAccessPackage -BodyParameter $param
 Use [LAmfa.json](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/LAmfa.json) This however is not the full logic app, the connection and communication actions need to be added by the designer. Part 3 will explain the communication pieces that I found easiest to add through the logic app designer.
 
 [Designer](https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/fullwithoutcomm.png)
+---
 #### Create the Access Package Policy
 
-Customize as you see fit to meet org standards however it's strongly suggested to utilize the multistage approvals. I also expire the access package quickly, 1 or 2 hours max I do this to enforce device compliance again as fast as possible. Access package policiescan be created by graph but i found that edits to the policy after don't work so I perfer to use the web gui when I create them.
+Customize the policy as needed to meet your organization's standards; however, it is strongly suggested to utilize multistage approvals. I also set the access package to expire quickly (1 or 2 hours maximum) to re-establish device compliance as fast as possible. Access package policies can be created via Microsoft Graph, but I have found that subsequent edits to the policy do not work well, so I prefer to use the web GUI when creating them.
 
-1) Give the policy a name and description
-2) Set first approver to the requestor's manager and second stage approver to IT or Security <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy1.png" alt="Policy1" width="300">
-3) Set the following <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy2.png" alt="Policy2" width="300">
-4) Skip or apply requestor information questions
-5) Set the expiration to as short as possible if utilizing device compliance <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy3.png" alt="Policy3" width="300">
-6) Ensure the custom extension (logic app) runs AFTER approval <img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy4.png" alt="Policy4" width="300">
+1) Give the policy a name and description.
+
+2) Set the first approver to the requestor's manager and the second-stage approver to IT or Security.  
+<br>
+<img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy1.png?raw=true" alt="Policy1" width="300" />
+
+3) Configure the following settings:  
+<br>
+<img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy2.png?raw=true" alt="Policy2" width="300" />
+
+4) Skip or apply the requestor information questions as appropriate.
+
+5) Set the expiration to be as short as possible when utilizing device compliance.  
+<br>
+<img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy3.png?raw=true" alt="Policy3" width="300" />
+
+6) Ensure the custom extension (logic app) runs *after* approval.  
+<br>
+<img src="https://github.com/tylerkirwan/Entra-Governance-and-Automation/blob/main/images/policy4.png?raw=true" alt="Policy4" width="300" />
 
 
 

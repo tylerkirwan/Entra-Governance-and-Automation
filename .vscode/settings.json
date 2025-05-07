@@ -1,8 +1,5 @@
 {
-    // tell CodeGPT to use OpenAI
-    "codegpt.provider": "openai",
-  
-    // your real OpenAI secret key (starts with sk‑ )
-    "codegpt.apiKey": "sk-proj-2IHLHslp9wTmwu-izJ6Vv9CkW3rCulUbXNkZoorFEs5TL-AIeXZJvduDRcsI-iilO_NROg2DmgT3BlbkFJLyjtNiWE39M9k14E-oVhsuXjyJ8d-5ur0ow7hdVQLeXjIiUdkGbkGDKCyilrLqKodGfWio2GQAX"
+    "codegpt.provider": "openai"
   }
+  
   

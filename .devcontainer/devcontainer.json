@@ -15,7 +15,8 @@
         "windsurfai.windsurf-vscode",
         "cursorless.cursorless-vscode",
         "ms-vscode.PowerShell",
-        "ms-azuretools.vscode-bicep"
+        "ms-azuretools.vscode-bicep",
+        "DanielSanMedium.dscodegpt"
       ],
       "settings": {
         "editor.inlineSuggest.enabled": true,

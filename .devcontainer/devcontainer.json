@@ -1,0 +1,26 @@
+{
+  "name": "Entra‑Governance‑Codespace",                
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  "features": {
+    "azure-cli": "latest",
+    "powershell": "latest"
+  },
+  "postCreateCommand": "pwsh -Command \"Install-Module -Name Bicep -Scope CurrentUser -Force\"",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "DanielSanMedium.chatgpt-vscode",
+        "Anthropic.claude-vscode",
+        "windsurfai.windsurf-vscode",
+        "cursorless.cursorless-vscode",
+        "ms-vscode.PowerShell",
+        "ms-azuretools.vscode-bicep"
+      ],
+      "settings": {
+        "editor.inlineSuggest.enabled": true,
+        "editor.suggestSelection": "first"
+      }
+    }
+  }
+}
